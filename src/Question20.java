@@ -5,6 +5,8 @@ public class Question20 {
 
     }
     public boolean isValid(String s) {
+
+        /*//方法一
         Stack<Character> stack = new Stack<>();
         char[] chars = s.toCharArray();
         for(char c:chars){
@@ -21,6 +23,30 @@ public class Question20 {
             }
         }
         //如果栈空则为有效的括号
+        return stack.isEmpty();*/
+
+        //方法二
+
+        Stack<Character> stack = new Stack<>();
+        char[] chars = s.toCharArray();
+        for(char c:chars){
+         //如果栈空直接加入
+            if(stack.isEmpty()){
+                stack.push(c);
+         //如果栈顶元素与c匹配弹出栈顶元素
+            }else if(match(stack.peek(),c)){
+                stack.pop();
+            //否则c入栈
+            }else {
+                stack.push(c);
+            }
+        }
         return stack.isEmpty();
+
+
+    }
+
+    public boolean match(char char1,char char2){
+        return (char1 == '(' && char2 == ')') || (char1 == '[' && char2 == ']') || (char1 == '{' && char2 == '}');
     }
 }
