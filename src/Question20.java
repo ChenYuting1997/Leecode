@@ -1,9 +1,7 @@
+import java.util.Collections;
 import java.util.Stack;
 
 public class Question20 {
-    public static void main(String[] args) {
-
-    }
     public boolean isValid(String s) {
 
         /*//方法一
@@ -43,10 +41,9 @@ public class Question20 {
         }
         return stack.isEmpty();
 
-
     }
 
-    public boolean match(char char1,char char2){
+    private boolean match(char char1, char char2){
         return (char1 == '(' && char2 == ')') || (char1 == '[' && char2 == ']') || (char1 == '{' && char2 == '}');
     }
 }
